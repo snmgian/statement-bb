@@ -1,0 +1,22 @@
+<h1>Collections</h1>
+
+<ul>
+  <li>A set of models</li>
+  <li>Sync with server</li>
+  <li>Mixed with underscore.js</li>
+</ul>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var BookCollection = Backbone.Collection.extend({
+      model: Book,
+      url: '/books',
+    });
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var Books = new BookCollection();
+  </pre>
+</div>

@@ -1,0 +1,15 @@
+<h1>Views</h1>
+
+<div class="demo"></div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var hello_view = new HelloView();
+    jQuery('.demo').append(hello_view.render().el);
+  </pre>
+</div>
+
+<%= javascript_tag do %>
+  var hello_view = new HelloView();
+  jQuery('.demo').append(hello_view.render().el);
+<% end %>

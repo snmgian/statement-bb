@@ -1,0 +1,50 @@
+<h1>Views</h1>
+
+<h3>Templates</h3>
+
+<div class="demo"></div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var ChangePriceView = Backbone.View.extend({
+
+      events: {
+        'click input[type=button]': 'change'
+      },
+
+      change: function() {
+        var price = $('input[type=text]').val();
+        this.model.set({price: price});
+      }
+    });
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var book = new Book({title: "The Life of Milarepa", price: 11});
+
+    var change_price_view = new ChangePriceView({model: book});
+    var book_view = new BookView({model: book});
+  </pre>
+</div>
+
+
+<script type="text/template" id="change_price_form">
+  <label>Price</label>
+  <input type="text" id="price" value="{{ price }}"/>
+  <input type="button" id="search_button" value="Change" />
+</script>
+
+<%= javascript_tag do %>
+  var book;
+  jQuery(function($) {
+    book = new Book({title: "The Life of Milarepa", price: 11});
+
+    var change_price_view = new ChangePriceView({model: book});
+    var book_view = new BookView({model: book});
+
+    $('.demo').append(change_price_view.render().el);
+    $('.demo').append(book_view.render().el);
+  });
+<% end %>

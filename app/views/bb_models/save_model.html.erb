@@ -1,0 +1,20 @@
+<h1>Save model</h1>
+
+<p class="code js">
+  <pre>
+    var essays = new Book({
+      title: "Zen Buddhism Essays", 
+      price: 10.76, 
+      author: "D. T. Suzuki"
+    });
+
+    essays.set({stock: 4});
+    essays.save();
+  </pre>
+
+  <pre>
+    essays.set({stock: 5});
+
+    essays.save();
+  </pre>
+</p>

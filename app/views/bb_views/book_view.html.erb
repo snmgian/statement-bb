@@ -1,0 +1,40 @@
+<h1>Hello view</h1>
+
+<div class="content"></div>
+<input type="button" id="change_price" value="Change Price" />
+
+<p class="code js">
+  <pre>
+    var BookView = Backbone.View.extend({
+
+      initialize: function() {
+        this.model.bind("change", this.render, this);
+      },
+
+      render: function() {
+        $(this.el).html(this.model.get("title") + " = U$S " + this.model.get("price"));
+        return this;
+      }
+    });
+  </pre>
+
+  <pre>
+    var book = new Book({title: "The Life of Milarepa", price: 11});
+
+    var book_view = new BookView({model: book});
+  </pre>
+</p>
+
+<%= javascript_tag do %>
+  var book = new Book({title: "The Life of Milarepa", price: 11});
+
+  var book_view = new BookView({model: book});
+  jQuery('.content').append(book_view.render().el);
+
+  jQuery(function($) {
+    $('#change_price').click(function($) {
+      var randomPrice = Math.floor(Math.random() * 100);
+      book.set({price: randomPrice});
+    });
+  });
+<% end %>

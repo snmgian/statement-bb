@@ -1,0 +1,23 @@
+<h1>Collections</h1>
+
+<h3>Fetching models</h3>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var books = Books.fetch();
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    console.log(Books.length);
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    Books.each(function(book) {
+      var title = book.get("title");
+    });
+  </pre>
+</div>

@@ -1,0 +1,32 @@
+<h1>Routers</h1>
+
+<ul>
+  <li>Bind url hash fragments to client side actions</li>
+  <li>History capabilities</li>
+</ul>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var ApplicationRouter = Backbone.Router.extend({
+      initialize: function() {
+        this.currentSlideNumber = 0;
+      },
+
+      routes: {
+        "slides/:number": "getSlide"
+      }
+    }
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    getSlide: function(number) {
+      var self = this;
+
+      $.get('/bb/slide/' + number, function(data) {
+        $('#slide_content').html(data);
+        self.currentSlideNumber = number;
+      });
+  </pre>
+</div>

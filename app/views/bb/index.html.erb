@@ -1,0 +1,33 @@
+<div class="navigation">
+  <span class="previous"><a href="#">Previous</a></span> 
+  |
+  <span class="next"><a href="#">Next</a></span> 
+</div>
+
+<div id="slide_content"></div>
+
+<%= javascript_tag do %>
+  jQuery(function($) {
+    var applicationRouter = new ApplicationRouter();
+
+    $('.navigation .previous').click(function(event) {
+      applicationRouter.gotoPreviousSlide();
+      return false;
+    });
+
+    $('.navigation .next').click(function(event) {
+      applicationRouter.gotoNextSlide();
+      return false;
+    });
+
+    $(document).keypress(function(event) {
+      if (event.keyCode == 37) {
+        applicationRouter.gotoPreviousSlide();
+      } else if (event.keyCode == 39) {
+        applicationRouter.gotoNextSlide();
+      }
+    });
+
+    applicationRouter.gotoNextSlide();
+  });
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Routers</h1>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    // ApplicationRouter = Backbone.Router.extend ...
+    gotoNextSlide: function() {
+      this.getSlide(this.currentSlideNumber + 1);
+    }
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var applicationRouter = new ApplicationRouter();
+
+    applicationRouter.gotoNextSlide();
+  </pre>
+</div>

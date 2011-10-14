@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  stock: 1
+  author: MyString
+  price: 9.99
+
+two:
+  title: MyString
+  stock: 1
+  author: MyString
+  price: 9.99

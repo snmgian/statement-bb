@@ -1,0 +1,28 @@
+<h1>Views</h1>
+
+<h3>A more complete demo ...</h3>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    // ShoppingLineView
+
+    events: {
+      "change input.quantity":      "quantityChanged"
+    },
+
+    quantityChanged: function() {
+      var quantity = parseInt($('input.quantity', this.el).val());
+      this.model.set({quantity: quantity});
+    }
+  </pre>
+</div>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+     // ShoppingView
+
+      initialize: function() {
+        this.collection.bind("change", this.reRenderTotal, this);
+      },
+  </pre>
+</div>

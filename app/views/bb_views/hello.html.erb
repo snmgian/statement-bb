@@ -1,0 +1,35 @@
+<h1>Hello view</h1>
+
+<div class="content"></div>
+
+<p class="code js">
+  <pre>
+    var HelloView = Backbone.View.extend({
+
+      tagName: "div",
+
+      events: {
+        'click': 'notify'
+      },
+
+      render: function() {
+        $(this.el).html("Hello world!");
+        return this;
+      },
+
+      notify: function() {
+        alert('clicked!');
+      }
+    });
+  </pre>
+
+  <pre>
+    var hello_view = new HelloView();
+    jQuery('.content').append(hello_view.render().el);
+  </pre>
+</p>
+
+<%= javascript_tag do %>
+  var hello_view = new HelloView();
+  jQuery('.content').append(hello_view.render().el);
+<% end %>

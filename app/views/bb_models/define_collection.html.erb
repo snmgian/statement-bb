@@ -1,0 +1,14 @@
+<h1>define collection</h1>
+
+<p class="code js">
+  <pre>
+    var BookCollection = Backbone.Collection.extend({
+      model: Book,
+      url: '/books',
+    });
+  </pre>
+
+  <pre>
+    var Books = new BookCollection();
+  </pre>
+</p>

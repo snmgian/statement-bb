@@ -1,0 +1,9 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "vendor/backbone.modelbinding" %>
+  <%= javascript_include_tag "bb_models" %>
+  <%= javascript_include_tag "bb_views" %>
+  <%= javascript_include_tag "shopping" %>
+<% end %>
+
+<%= render :template => 'layouts/application' %>
+

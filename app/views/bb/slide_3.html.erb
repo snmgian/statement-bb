@@ -1,0 +1,18 @@
+<h1>Models</h1>
+
+<ul>
+  <li>Business logic at client side</li>
+  <li>Sync with server</li>
+</ul>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var Book = Backbone.Model.extend({
+      urlRoot: '/books',
+    });
+  </pre>
+</div>
+
+<%= javascript_tag do %>
+  SyntaxHighlighter.all();
+<% end %>

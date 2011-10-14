@@ -1,0 +1,23 @@
+<h1>Views</h1>
+
+<div class="code_wrapper">
+  <pre class="brush: javascript">
+    var HelloView = Backbone.View.extend({
+
+      tagName: "div",
+
+      events: {
+        'click': 'notify'
+      },
+
+      render: function() {
+        $(this.el).html("Hello world!");
+        return this;
+      },
+
+      notify: function() {
+        alert('clicked!');
+      }
+    });
+  </pre>
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Statement</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%# javascript_include_tag "application" %>
+
+  <%= javascript_include_tag "vendor/jquery-1.6.4.min" %>
+  <%= javascript_include_tag "vendor/underscore-min" %>
+  <%= javascript_include_tag "vendor/backbone" %>
+
+  <%= stylesheet_link_tag    "sh/shCore" %>
+  <%= stylesheet_link_tag    "sh/shThemeEclipse" %>
+
+  <%= javascript_include_tag "sh/XRegExp" %>
+  <%= javascript_include_tag "sh/shCore" %>
+  <%= javascript_include_tag "sh/shAutoloader" %>
+  <%= javascript_include_tag "sh/shLegacy" %>
+  <%= javascript_include_tag "sh/shBrushJScript" %>
+  <%= javascript_include_tag "sh/shBrushXml" %>
+
+  <%= javascript_include_tag "vendor/backbone.modelbinding" %>
+  <%= javascript_include_tag "bb_models" %>
+  <%= javascript_include_tag "bb_views" %>
+  <%= javascript_include_tag "shopping" %>
+
+  <%= csrf_meta_tags %>
+
+  <%= yield :head %>
+</head>
+<body>
+
+<%= content_for?(:content) ? yield(:content) : yield %>
+
+</body>
+<%= javascript_tag do %>
+  SyntaxHighlighter.all();
+<% end %>
+</html>

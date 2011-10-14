@@ -1,0 +1,45 @@
+<h1>Views</h1>
+
+<h3>A more complete demo ...</h3>
+
+<div class="demo"></div>
+
+<script type="text/template" id="shopping_lines_tpl">
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div>Total: <span class="total">{{ total }}<span></div>
+</script>
+
+<script type="text/template" id="shopping_line_tpl">
+  <td>{{ bookLine.get("title") }}</td>
+  <td>{{ bookLine.get("price") }}</td>
+  <td><input type="text" class="quantity" value="{{ bookLine.get('quantity') }}" /></td>
+  <td>{{ bookLine.subTotal() }}</td>
+</script>
+
+<%= javascript_tag do %>
+  jQuery(function($) {
+
+    Books.fetch({
+      success: function(booksCollection, response) {
+        var linesCollection = booksCollection.map(function(book) {
+          return new BookLine({model: book});
+        });
+        linesCollection = new BookLineCollection(linesCollection);
+
+        var shoppingView = new ShoppingView({collection: linesCollection});
+        $('.demo').append(shoppingView.render().el);
+      },
+    });
+
+  });
+<% end %>

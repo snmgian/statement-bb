@@ -1,0 +1,41 @@
+<h1>Bindings view</h1>
+
+<p class="code js">
+  <pre>
+    var ChangePriceBoundView = Backbone.View.extend({
+
+      render: function() {
+        // render ...
+
+        Backbone.ModelBinding.bind(this);
+        return this;
+      }
+    });
+  </pre>
+
+  <pre>
+    var change_price_view = new ChangePriceBoundView({model: book});
+    var book_view = new BookView({model: book});
+  </pre>
+</p>
+
+<div class="content"></div>
+
+
+<script type="text/template" id="change_price_form">
+  <label>Price</label>
+  <input type="text" id="price" value="{{ price }}"/>
+</script>
+
+<%= javascript_tag do %>
+  var book;
+  jQuery(function($) {
+    book = new Book({title: "The Life of Milarepa", price: 11});
+
+    var change_price_view = new ChangePriceBoundView({model: book});
+    var book_view = new BookView({model: book});
+
+    $('.content').append(change_price_view.render().el);
+    $('.content').append(book_view.render().el);
+  });
+<% end %>
